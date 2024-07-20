@@ -273,7 +273,7 @@ const getWeatherData = async () => {
 
         }
         // await new Promise((resolve) => setTimeout(resolve, 1000));
-        console.log(combinedData.value);
+        // console.log(combinedData.value);
         return weatherData.data;
 
     } catch (error) {

@@ -24,7 +24,7 @@ const getCities = async () => {
         );
 
         const requests = [];
-        console.log(savedCities)
+        // console.log(savedCities)
         savedCities.value.forEach((city) => {
             requests.push(
                 axios.get(

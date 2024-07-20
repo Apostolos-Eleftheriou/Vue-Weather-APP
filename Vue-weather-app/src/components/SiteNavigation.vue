@@ -3,7 +3,7 @@
         <nav class="container flex flex-row item-center justify-between gap-4 text-white py-6 ">
             <RouterLink :to="{ name: 'home' }" class="w-full">
                 <div class="flex items-center gap-3">
-                    <img src="/src/assets/foggy.svg" alt="logo" class="max-w-[40px]">
+                    <img src="/src/assets/tornado.svg" alt="logo" class="max-w-[30px] invert">
                     <p class="text-2xl">Vue Weather</p>
                 </div>
             </RouterLink>

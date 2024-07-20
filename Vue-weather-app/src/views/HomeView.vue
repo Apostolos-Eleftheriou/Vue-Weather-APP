@@ -60,7 +60,7 @@ const handleClear = () => {
 };
 
 const previewCity = (searchResults) => {
-    console.log(searchResults);
+    // console.log(searchResults);
     // const [city, state] = searchResults.place_name.split(",");
     const city = searchResults.address.city != null ? searchResults.address.city : searchResults.address.state != null ? searchResults.address.state : searchResults.address.country;
     const state = searchResults.address.state != null ? searchResults.address.state : searchResults.address.country;
