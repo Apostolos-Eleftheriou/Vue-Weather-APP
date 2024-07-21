@@ -57,6 +57,7 @@ const goToCityView = (city) => {
             id: city.id,
             lat: city.coords.lat,
             lng: city.coords.lng,
+            date: city.date,
         },
     });
 };
