@@ -211,7 +211,9 @@
                                         }
                                     )
                                 }}</div>
-                                <div> {{ new Date(dailyData.day).toLocaleString("el-gr").split(",")[0] }}</div>
+                                <div class="text-gray-400 text-xs">
+                                    {{ new Date(dailyData.day).toLocaleString("el-gr").split(",")[0] }}
+                                </div>
                             </div>
                             <!-- <img class="w-auto h-[50px] object-cover"
                                 :src="getIconPath(weatherCategoryAndIcon.iconCode)" alt="" /> -->
