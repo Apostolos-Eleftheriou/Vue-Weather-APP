@@ -5,3 +5,7 @@
 .modal_open {
     overflow: hidden;
 }
+
+.Vue-Toastification__toast {
+    filter: saturate(0.6);
+}

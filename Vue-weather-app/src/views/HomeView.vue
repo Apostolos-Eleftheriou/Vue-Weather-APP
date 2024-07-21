@@ -30,7 +30,8 @@
                         class="py-2 px-4 cursor-pointer hover:bg-weather-primary/40 rounded-lg truncate">
                         <i class="fa-solid fa-location-dot text-white mr-2"></i>
                         <!-- {{ searchResult.name }}, {{ searchResult.address.state }}, {{ searchResult.address.country }} -->
-                        {{ searchResult.name }}, {{ searchResult.admin1 }}, {{ searchResult.country }}
+                        {{ searchResult.name }}, {{ searchResult.admin1 }}{{ searchResult.admin1 ? "," : "" }} {{
+                            searchResult.country }}
                     </li>
                 </template>
             </ul>
@@ -71,7 +72,7 @@ const previewCity = (searchResults) => {
     // const city = searchResults.address.city != null ? searchResults.address.city : searchResults.address.state != null ? searchResults.address.state : searchResults.address.country;
     // const state = searchResults.address.state != null ? searchResults.address.state : searchResults.address.country;
     const city = searchResults.name;
-    const state = searchResults.admin1;
+    const state = searchResults.admin1 ? searchResults.admin1 : searchResults.country;
     const id = searchResults.id;
 
     if (localStorage.getItem("savedCities")) {
