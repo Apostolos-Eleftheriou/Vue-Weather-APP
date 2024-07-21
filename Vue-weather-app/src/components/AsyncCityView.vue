@@ -248,6 +248,9 @@ import { onMounted, ref, computed, nextTick } from 'vue';
 import { useRoute, useRouter } from 'vue-router';
 import 'vue3-carousel/dist/carousel.css'
 import { Carousel, Slide } from 'vue3-carousel'
+import { useToast } from 'vue-toastification'
+
+const toast = useToast()
 const hourlyCarousel = ref(null);
 const hourlyWindCarousel = ref(null);
 const weeklyForecastCarousel = ref(null);
@@ -328,6 +331,7 @@ const removeCity = () => {
     const updatedCities = cities.filter((city) => city.id !== route.query.id);
     localStorage.setItem("savedCities", JSON.stringify(updatedCities));
     router.push({ name: "home" });
+    toast.success(`${route.params.city} removed from your favorites`)
 }
 // const weatherParams = "&current=temperature_2m,apparent_temperature,is_day,precipitation,rain,showers,snowfall,wind_speed_10m,wind_direction_10m,wind_gusts_10m&hourly=temperature_2m,relative_humidity_2m&daily=weather_code,temperature_2m_max,temperature_2m_min,apparent_temperature_max,apparent_temperature_min,sunrise,sunset,daylight_duration,sunshine_duration,uv_index_max,uv_index_clear_sky_max,precipitation_sum,rain_sum,showers_sum,snowfall_sum,precipitation_hours,precipitation_probability_max,wind_speed_10m_max,wind_gusts_10m_max&timezone=auto"
 const weatherParams = "&current=temperature_2m,apparent_temperature,is_day,precipitation,rain,showers,snowfall,wind_speed_10m,wind_direction_10m,wind_gusts_10m,relative_humidity_2m&hourly=temperature_2m,relative_humidity_2m,precipitation,wind_speed_10m,wind_direction_10m&daily=weather_code,temperature_2m_max,temperature_2m_min,apparent_temperature_max,apparent_temperature_min,sunrise,sunset,daylight_duration,sunshine_duration,uv_index_max,uv_index_clear_sky_max,precipitation_sum,rain_sum,showers_sum,snowfall_sum,precipitation_hours,precipitation_probability_max,wind_speed_10m_max,wind_gusts_10m_max&timezone=auto"

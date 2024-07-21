@@ -54,6 +54,9 @@ import { RouterLink, useRoute, useRouter } from 'vue-router';
 import BaseModal from './BaseModal.vue';
 import { ref } from 'vue';
 import { uid } from 'uid';
+import { useToast } from 'vue-toastification'
+
+const toast = useToast()
 
 const route = useRoute();
 const router = useRouter();
@@ -66,7 +69,7 @@ const addCity = () => {
         savedCities.value = JSON.parse(localStorage.getItem('savedCities'));
     }
     const locationObj = {
-        id: uid(),
+        id: route.query.id,
         state: route.params.state,
         city: route.params.city,
         date: route.query.date,
@@ -82,6 +85,7 @@ const addCity = () => {
     query.id = locationObj.id;
     delete query.preview;
     router.replace({ query });
+    toast.success(`${route.params.city} added to favorites!`)
 }
 
 const toggleModal = () => {

@@ -54,6 +54,9 @@ import { useRouter } from "vue-router";
 import CityList from "../components/CityList.vue";
 import CityCardSkeleton from "../components/CityCardSkeleton.vue";
 import AnimatedPlaceholder from "@/components/AnimatedPlaceholder.vue";
+import { useToast } from 'vue-toastification'
+
+const toast = useToast()
 
 const router = useRouter();
 
@@ -67,11 +70,21 @@ const previewCity = (searchResults) => {
     // const [city, state] = searchResults.place_name.split(",");
     // const city = searchResults.address.city != null ? searchResults.address.city : searchResults.address.state != null ? searchResults.address.state : searchResults.address.country;
     // const state = searchResults.address.state != null ? searchResults.address.state : searchResults.address.country;
-    const city = searchResults.name
-    const state = searchResults.admin1
+    const city = searchResults.name;
+    const state = searchResults.admin1;
+    const id = searchResults.id;
+
+    if (localStorage.getItem("savedCities")) {
+        const savedCities = JSON.parse(localStorage.getItem("savedCities"));
+        if (savedCities.find(city => parseInt(city.id) === parseInt(id))) {
+            toast.error(`${searchResults.name} is already added!`)
+            return;
+        }
+    }
     router.push({
         name: "cityView", params: { state: state.replaceAll(" ", ""), city: city },
         query: {
+            id: searchResults.id,
             lat: searchResults.latitude,
             lng: searchResults.longitude,
             date: new Date().toISOString().split("T")[0],

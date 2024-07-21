@@ -2,7 +2,7 @@
     <Teleport to="body">
         <Transition name="modal-outer">
             <div v-show="modalActive"
-                class="fixed z-20 w-full bg-black bg-opacity-30 h-screen top-0 left-0 flex justify-center px-8 backdrop-blur-[3px]">
+                class="fixed z-20 w-full bg-black bg-opacity-30 h-screen top-0 left-0 flex justify-center px-8 backdrop-blur-[3px] overflow-y-auto">
                 <Transition name="modal-inner">
                     <div v-if="modalActive" class="p-4 bg-white self-start mt-10 md:mt-32 max-w-screen-md rounded-lg">
                         <slot />
