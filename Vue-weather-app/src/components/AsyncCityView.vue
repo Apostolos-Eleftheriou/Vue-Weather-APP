@@ -137,7 +137,7 @@
                                 <i class="fa-solid fa-arrow-down text-sky-300"></i>
                             </p>
                             <p class="text-sm">
-                                {{ Math.round(data.windSpeed) }}km/h
+                                {{ Math.round(data.windSpeed) }} km/h
                             </p>
                         </Slide>
                     </Carousel>
