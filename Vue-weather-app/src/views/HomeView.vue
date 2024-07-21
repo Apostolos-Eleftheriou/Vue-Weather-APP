@@ -87,7 +87,11 @@ const previewCity = (searchResults) => {
             id: searchResults.id,
             lat: searchResults.latitude,
             lng: searchResults.longitude,
-            date: new Date().toISOString().split("T")[0],
+            date: new Date().toLocaleDateString('en-CA', {
+                year: 'numeric',
+                month: '2-digit',
+                day: '2-digit'
+            }),
             preview: true
         }
     });
